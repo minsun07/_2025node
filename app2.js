@@ -71,6 +71,7 @@ app.get('/travel/:id', (req, res) =>{
 app.post('/travel', (req, res) => {
   const {name} = req.body;
   const _query = 'INSERT INTO travellist (name) VALUE (?)';
+  console.log(name)
   db.query(_query, [name], (err, results) => {
     if(err){
       console.error('데이터베이스 쿼리 실패 :', err);
@@ -81,6 +82,9 @@ app.post('/travel', (req, res) => {
   });
 });
 
+app.get('/add-travel', (req, res) =>{
+  res.render('addTravel');
+});
 
 app.use((req, res) => {
   
