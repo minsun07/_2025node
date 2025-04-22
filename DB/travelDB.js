@@ -3,19 +3,13 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const db = mysql.createPool({
+const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME
 });
 
-// db.connect((err) => {
-//   if (err) {
-//     console.error('MySQL 연결 실패: ', err);
-//     return;
-//   }
-//   console.log('MySQL에 연결되었습니다.');
-// });
+const db = pool.promise();
 
 module.exports = db;
