@@ -28,7 +28,6 @@ app.use('/travel', travelRouter);
 app.use((req, res) => {
   res.status(404).send('404 not found')
 })
-
 app.listen(3001, () => {
   console.log('서버가 http://localhost:3001 에서 실행 중입니다.')
 });  
